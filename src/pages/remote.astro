@@ -1,0 +1,9 @@
+---
+import { Markdown } from 'astro/components';
+import Layout from '../layouts/pageLayout.astro';
+const title = 'Remote Markdown'
+const content = await fetch('https://raw.githubusercontent.com/withastro/docs/main/README.md').then(res => res.text());
+---
+<Layout content={{title}}>
+  <Markdown content={content} />
+</Layout>

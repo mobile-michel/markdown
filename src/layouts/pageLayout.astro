@@ -1,0 +1,29 @@
+---
+const { content } = Astro.props;
+---
+<html lang="en">
+  <head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+    <title>{content.title}</title>
+  </head>
+  <body>
+    <header>
+      <h1>Site Name</h1>
+      <nav>
+        <a href="/">*.md page</a><span> | </span>
+        <a href="/markdown">*.astro page</a><span> | </span>
+        <a href="/component">component</a><span> | </span>
+        <a href="/astro">astro file</a><span> | </span>
+        <a href="/posts">blog</a>
+      </nav>
+    </header>
+    <main>
+      <h2>{content.title}</h2>
+      <slot />
+    </main>
+    <footer>
+      <p>Footer copyright @2022</p>
+    </footer>
+  </body>
+</html>

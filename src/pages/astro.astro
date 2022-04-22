@@ -1,0 +1,9 @@
+---
+import { Markdown } from 'astro/components'
+import Layout from '../layouts/pageLayout.astro'
+const title = '.astro file with imported .md file'
+const content = await fetch('examples/docs/src/pages/en/page-2.md').then(res => res.text());
+---
+<Layout content={{title}}>
+    <Markdown content={content} />
+</Layout>

@@ -1,0 +1,19 @@
+---
+import PageLayout from '../layouts/pageLayout.astro'
+let data = await Astro.glob('../pages/posts/*.md')
+const { content } = Astro.props
+---
+<PageLayout content={content}>
+			<aside>
+            <h3>All posts</h3>
+				{data.map((post) => (
+					<a href={post.url}>{post.frontmatter.title}</a><span> | </span>
+				))}
+			</aside>
+			<section>
+                <p><strong>Description</strong>: {content.description}</p>
+				<p>This post is from {content.author}.</p>
+				<p>Written on {content.date}</p>
+					<slot />
+			</section>
+</PageLayout>
